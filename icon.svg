@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">FairWash App-Symbol</title>
+  <desc id="desc">Grünes Symbol mit Teller, Wassertropfen und Häkchen.</desc>
+  <rect width="512" height="512" rx="112" fill="#2f6f4e"/>
+  <circle cx="256" cy="280" r="132" fill="#ffffff"/>
+  <circle cx="256" cy="280" r="86" fill="#dcebe2"/>
+  <path d="M168 284l54 54 122-136" fill="none" stroke="#2f6f4e" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M256 72c-36 51-58 84-58 116a58 58 0 0 0 116 0c0-32-22-65-58-116z" fill="#9ed8bc"/>
+</svg>
