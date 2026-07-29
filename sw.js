@@ -1,4 +1,4 @@
-const CACHE_NAME = "fairwash-v2";
+const CACHE_NAME = "fairwash-v5";
 const APP_FILES = [
   "./",
   "./index.html",
