@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const SUPABASE_URL = "https://uftqqchwdksznxsjioat.supabase.com";
+  const SUPABASE_URL = "https://uftqqchwdksznxsjioat.supabase.co";
   const SUPABASE_KEY = "sb_publishable_b3D290QZUx-TwJHj7D_s-A_PzYdGNxw";
   const GROUP_KEY = "fairwash_group";
   const LOCAL_KEY = "fairwash_v6_local";
@@ -346,14 +346,8 @@
     location.reload();
   };
 
-  window.addEventListener("online", () => {
-    $("syncStatus").textContent = "Wieder online – synchronisiert …";
-    saveCloud();
-  });
-  window.addEventListener("offline", () => {
-    if (group) $("syncStatus").textContent = "Offline – lokal gespeichert";
-  });
-
   init();
-  if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
+  }
 })();
