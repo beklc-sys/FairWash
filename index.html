@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="theme-color" content="#2f6f4e">
@@ -12,180 +12,58 @@
   <link rel="apple-touch-icon" href="icon.svg">
   <title>FairWash</title>
   <style>
-    :root{--bg:#eef2ed;--card:#fff;--text:#1e2922;--muted:#6b756f;--accent:#2f6f4e;--accent-soft:#dcebe2;--yellow:#e3b72f;--yellow-soft:#fff1ad;--red:#b83e3e;--red-soft:#f7dada;--danger:#a53d3d;--danger-soft:#f6e2e2;--border:#d7ded9;--shadow:0 10px 28px rgba(31,47,37,.08)}
-    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);min-height:100vh}.app{width:min(760px,calc(100% - 24px));margin:18px auto 40px;padding-bottom:env(safe-area-inset-bottom)}h1{margin:0;font-size:2rem}h2{margin:0 0 14px;font-size:1.2rem}p{margin:0}.subtitle{color:var(--muted);margin-top:6px;margin-bottom:18px}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}.setup-label{display:block;font-weight:800;margin-bottom:8px}.participant-select{width:100%;border:1px solid var(--border);border-radius:11px;padding:12px;background:#fff;font:inherit;color:var(--text)}.players{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.player{padding:14px;border-radius:16px;background:#f7f9f7;border:2px solid transparent}.player.active{border-color:var(--accent);background:var(--accent-soft)}.name-input{width:100%;border:1px solid var(--border);border-radius:11px;padding:10px 12px;font:inherit;font-weight:700;background:#fff;color:var(--text)}.score{font-size:2rem;font-weight:800;margin-top:10px}.count{color:var(--muted);font-size:.9rem;margin-top:2px}.turn{margin-top:14px;padding:14px;border-radius:14px;background:var(--accent-soft);text-align:center;font-weight:800;font-size:1.1rem}.factor{margin-bottom:16px}.factor:last-child{margin-bottom:0}.factor-title{font-weight:800;margin-bottom:8px}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}button{font:inherit;touch-action:manipulation}.choice{border:1px solid var(--border);background:#fff;color:var(--text);padding:12px 6px;border-radius:12px;font-weight:700;min-height:48px}.choice.selected[data-value="1"]{background:var(--accent);color:#fff;border-color:var(--accent)}.choice.selected[data-value="2"]{background:var(--yellow-soft);color:#5c4700;border-color:var(--yellow)}.choice.selected[data-value="3"]{background:var(--red);color:#fff;border-color:var(--red)}.wash-value{text-align:center;font-size:1.25rem;font-weight:800;margin:18px 0 4px}.btn{width:100%;border:0;border-radius:14px;min-height:50px;padding:13px 16px;font-weight:800;margin-top:10px}.btn-primary{background:var(--accent);color:#fff}.btn-secondary{background:#e8ede9;color:var(--text)}.btn-danger{background:var(--danger-soft);color:var(--danger)}.history{display:grid;gap:10px}.entry{border:1px solid var(--border);border-radius:14px;padding:13px;background:#fbfcfb}.entry-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.entry-name{font-weight:800}.entry-meta{color:var(--muted);margin-top:3px;font-size:.9rem}.entry-points{font-weight:800;font-size:1.15rem}.entry-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.mini{border:0;border-radius:10px;min-height:42px;font-weight:750}.mini-edit{background:#e8ede9;color:var(--text)}.mini-delete{background:var(--danger-soft);color:var(--danger)}.edit-box{display:none;margin-top:12px;border-top:1px solid var(--border);padding-top:12px}.edit-box.open{display:block}.edit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.edit-grid label{font-size:.82rem;color:var(--muted)}.edit-grid select{width:100%;margin-top:5px;border:1px solid var(--border);border-radius:9px;padding:10px;background:#fff;font:inherit}.empty{color:var(--muted);text-align:center;padding:16px 8px}.status{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#1f2a24;color:#fff;padding:11px 16px;border-radius:999px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:99;max-width:calc(100% - 30px);text-align:center}.status.show{opacity:1}@media(max-width:580px){.players{grid-template-columns:1fr}.edit-grid{grid-template-columns:1fr}}
+    :root{--bg:#eef2ed;--card:#fff;--text:#1e2922;--muted:#68736c;--green:#2f6f4e;--green-soft:#dcebe2;--yellow:#d69b16;--yellow-soft:#fff1bd;--red:#b54141;--red-soft:#f8e0e0;--border:#d7ded9;--shadow:0 10px 28px rgba(31,47,37,.08)}
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);min-height:100vh}.app{width:min(780px,calc(100% - 24px));margin:16px auto 40px;padding-bottom:env(safe-area-inset-bottom)}button,input,select{font:inherit}button{touch-action:manipulation}.hero{background:linear-gradient(145deg,#255c40,#397d59);color:#fff;border-radius:24px;padding:22px;margin-bottom:14px;box-shadow:var(--shadow);text-align:center}.brand{font-size:1.25rem;font-weight:850;letter-spacing:.02em}.hero-label{margin-top:20px;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;opacity:.8}.hero-name{font-size:clamp(2rem,8vw,3.25rem);font-weight:900;line-height:1.05;margin-top:5px}.hero-sub{margin-top:8px;opacity:.82}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}h2{margin:0 0 14px;font-size:1.15rem}.setup{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.setup label{font-weight:800}.setup select{width:auto;min-width:90px;margin:0;border:1px solid var(--border);border-radius:11px;padding:9px 12px;background:#fff}.players{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.player{padding:13px;border-radius:15px;background:#f7f9f7;border:2px solid transparent;transition:transform .2s,border-color .2s,background .2s}.player.active{border-color:var(--green);background:var(--green-soft);transform:translateY(-1px)}.player.high:not(.active){border-color:#e1a2a2;background:var(--red-soft)}.name-input{width:100%;border:1px solid var(--border);border-radius:10px;padding:9px 10px;font-weight:750;background:#fff;color:var(--text)}.score{font-size:1.75rem;font-weight:900;margin-top:8px}.count{font-size:.86rem;color:var(--muted)}.badge{display:inline-block;margin-top:7px;padding:4px 8px;border-radius:999px;font-size:.74rem;font-weight:800;background:#edf0ee;color:var(--muted)}.player.active .badge{background:#fff;color:var(--green)}.fairness{margin-top:14px;border-radius:14px;padding:12px 14px;font-weight:800;text-align:center}.fairness.green{background:var(--green-soft);color:#245c3f}.fairness.yellow{background:var(--yellow-soft);color:#765404}.fairness.red{background:var(--red-soft);color:#8e3030}.draw{display:none;margin-top:10px}.draw.show{display:block}.progress{margin-top:14px;display:grid;gap:8px}.progress-row{display:grid;grid-template-columns:minmax(75px,120px) 1fr auto;gap:8px;align-items:center;font-size:.85rem}.progress-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}.track{height:9px;background:#e8ece9;border-radius:999px;overflow:hidden}.bar{height:100%;background:var(--green);border-radius:999px;transition:width .35s ease}.progress-value{font-weight:800;min-width:24px;text-align:right}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{background:#f5f8f5;border-radius:14px;padding:13px 8px;text-align:center}.stat-value{font-size:1.45rem;font-weight:900}.stat-label{font-size:.78rem;color:var(--muted);margin-top:2px}.factor{margin-bottom:16px}.factor:last-child{margin-bottom:0}.factor-title{font-weight:850;margin-bottom:8px}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.choice{border:1px solid var(--border);background:#fff;color:var(--text);padding:12px 5px;border-radius:12px;font-weight:750;min-height:48px}.choice.selected[data-value="1"]{background:var(--green);color:#fff;border-color:var(--green)}.choice.selected[data-value="2"]{background:var(--yellow);color:#fff;border-color:var(--yellow)}.choice.selected[data-value="3"]{background:var(--red);color:#fff;border-color:var(--red)}.wash-value{text-align:center;font-size:1.25rem;font-weight:900;margin:18px 0 4px}.btn{width:100%;border:0;border-radius:14px;min-height:50px;padding:13px 16px;font-weight:850;margin-top:10px}.btn-primary{background:var(--green);color:#fff}.btn-secondary{background:#e8ede9;color:var(--text)}.btn-danger{background:var(--red-soft);color:var(--red)}.btn-draw{background:#f0e5ff;color:#63349a}.history{display:grid;gap:10px}.entry{border:1px solid var(--border);border-radius:14px;padding:13px;background:#fbfcfb}.entry-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.entry-name{font-weight:850}.entry-meta{color:var(--muted);margin-top:3px;font-size:.88rem}.entry-points{font-weight:900;font-size:1.1rem}.entry-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.mini{border:0;border-radius:10px;min-height:40px;font-weight:750}.mini-edit{background:#e8ede9}.mini-delete{background:var(--red-soft);color:var(--red)}.edit-box{display:none;margin-top:12px;border-top:1px solid var(--border);padding-top:12px}.edit-box.open{display:block}.edit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.edit-grid label{font-size:.82rem;color:var(--muted)}select{width:100%;margin-top:5px;border:1px solid var(--border);border-radius:9px;padding:9px;background:#fff}.empty{color:var(--muted);text-align:center;padding:14px}.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translate(-50%,15px);background:#1f2a24;color:#fff;padding:11px 16px;border-radius:999px;font-weight:750;opacity:0;pointer-events:none;transition:.2s;z-index:99;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.pulse{animation:pulse .35s ease}@keyframes pulse{50%{transform:scale(1.035)}}
+    @media(max-width:600px){.players{grid-template-columns:1fr}.edit-grid{grid-template-columns:1fr}.setup{align-items:flex-end}.hero{padding:20px 16px}.stats{gap:6px}.stat{padding:11px 4px}.stat-value{font-size:1.25rem}}
   </style>
 </head>
 <body>
-  <main class="app">
-    <h1>Camping-Abwasch</h1>
-    <p class="subtitle">Wer weniger Punkte hat, übernimmt den nächsten Abwasch.</p>
-
-    <section class="card">
-      <label class="setup-label" for="participantCount">Anzahl der Teilnehmer</label>
-      <select class="participant-select" id="participantCount">
-        <option value="2">2 Teilnehmer</option>
-        <option value="3">3 Teilnehmer</option>
-        <option value="4">4 Teilnehmer</option>
-        <option value="5">5 Teilnehmer</option>
-      </select>
-    </section>
-
-    <section class="card">
-      <div class="players" id="players"></div>
-      <div class="turn" id="turnText"></div>
-    </section>
-
-    <section class="card">
-      <h2>Aktuellen Abwasch bewerten</h2>
-      <div class="factor"><div class="factor-title">Menge</div><div class="choices" data-factor="amount"><button type="button" class="choice" data-value="1">1 · wenig</button><button type="button" class="choice" data-value="2">2 · normal</button><button type="button" class="choice" data-value="3">3 · viel</button></div></div>
-      <div class="factor"><div class="factor-title">Fett</div><div class="choices" data-factor="fat"><button type="button" class="choice" data-value="1">1 · kaum</button><button type="button" class="choice" data-value="2">2 · fettig</button><button type="button" class="choice" data-value="3">3 · sehr fettig</button></div></div>
-      <div class="factor"><div class="factor-title">Schwierigkeit</div><div class="choices" data-factor="difficulty"><button type="button" class="choice" data-value="1">1 · einfach</button><button type="button" class="choice" data-value="2">2 · mittel</button><button type="button" class="choice" data-value="3">3 · schwierig</button></div></div>
-      <div class="wash-value">Abwaschwert: <span id="washValue">6</span> Punkte</div>
-      <button type="button" class="btn btn-primary" id="addBtn">Abwasch eintragen</button>
-      <button type="button" class="btn btn-secondary" id="undoBtn">Letzten Eintrag rückgängig</button>
-      <button type="button" class="btn btn-danger" id="resetBtn">Verlauf vollständig löschen</button>
-    </section>
-
-    <section class="card"><h2>Verlauf</h2><div class="history" id="history"></div></section>
-  </main>
-  <div class="status" id="status"></div>
-
-  <script>
-    (function(){
-      "use strict";
-      var STORAGE_KEY="camping_abwasch_v3";
-      var DEFAULT_NAMES=["Christoph","Meine Frau","Person 3","Person 4","Person 5"];
-      var state=loadState();
-
-      function freshState(){return{participantCount:2,names:DEFAULT_NAMES.slice(),factors:{amount:2,fat:2,difficulty:2},history:[]}}
-
-      function loadState(){
-        var fallback=freshState();
-        try{
-          var raw=localStorage.getItem(STORAGE_KEY);
-          if(!raw)return fallback;
-          var parsed=JSON.parse(raw);
-          if(!parsed||!Array.isArray(parsed.history)||!Array.isArray(parsed.names))return fallback;
-          var names=DEFAULT_NAMES.slice();
-          for(var i=0;i<Math.min(parsed.names.length,5);i++)names[i]=String(parsed.names[i]||DEFAULT_NAMES[i]);
-          var count=Number(parsed.participantCount)||2;
-          count=Math.max(2,Math.min(5,count));
-          return{participantCount:count,names:names,factors:parsed.factors||fallback.factors,history:parsed.history.filter(function(entry){return Number(entry.person)>=0&&Number(entry.person)<count})};
-        }catch(error){return fallback}
-      }
-
-      function saveState(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch(error){showStatus("Speichern ist in dieser Ansicht blockiert.")}}
-
-      function totals(){
-        var scores=[],counts=[];
-        for(var i=0;i<state.participantCount;i++){scores.push(0);counts.push(0)}
-        for(var j=0;j<state.history.length;j++){
-          var entry=state.history[j],person=Number(entry.person);
-          if(person>=0&&person<state.participantCount){scores[person]+=Number(entry.points)||0;counts[person]+=1}
-        }
-        return{scores:scores,counts:counts};
-      }
-
-      function nextPerson(){
-        var data=totals(),minimum=Math.min.apply(null,data.scores),candidates=[];
-        for(var i=0;i<data.scores.length;i++)if(data.scores[i]===minimum)candidates.push(i);
-        if(!state.history.length)return candidates[0];
-        var last=Number(state.history[state.history.length-1].person);
-        for(var offset=1;offset<=state.participantCount;offset++){
-          var candidate=(last+offset)%state.participantCount;
-          if(candidates.indexOf(candidate)!==-1)return candidate;
-        }
-        return candidates[0];
-      }
-
-      function currentValue(){return Number(state.factors.amount)+Number(state.factors.fat)+Number(state.factors.difficulty)}
-
-      function showStatus(message){var el=document.getElementById("status");el.textContent=message;el.className="status show";setTimeout(function(){el.className="status"},1600)}
-
-      function renderPlayers(data,next){
-        var holder=document.getElementById("players");holder.innerHTML="";
-        for(var i=0;i<state.participantCount;i++){
-          var player=document.createElement("div");player.className=i===next?"player active":"player";
-          var input=document.createElement("input");input.className="name-input";input.value=state.names[i];input.setAttribute("aria-label","Name Person "+(i+1));input.setAttribute("data-person",String(i));
-          input.onchange=function(){var index=Number(this.getAttribute("data-person"));state.names[index]=this.value.trim()||DEFAULT_NAMES[index];render()};
-          var score=document.createElement("div");score.className="score";score.textContent=data.scores[i]+" Punkte";
-          var count=document.createElement("div");count.className="count";count.textContent=data.counts[i]+(data.counts[i]===1?" Abwasch":" Abwasche");
-          player.appendChild(input);player.appendChild(score);player.appendChild(count);holder.appendChild(player);
-        }
-      }
-
-      function setSelectedButtons(){
-        var groups=document.querySelectorAll(".choices");
-        for(var i=0;i<groups.length;i++){
-          var factor=groups[i].getAttribute("data-factor"),buttons=groups[i].querySelectorAll(".choice");
-          for(var j=0;j<buttons.length;j++)buttons[j].className=Number(buttons[j].getAttribute("data-value"))===Number(state.factors[factor])?"choice selected":"choice";
-        }
-      }
-
-      function render(){
-        var data=totals(),next=nextPerson();
-        document.getElementById("participantCount").value=String(state.participantCount);
-        renderPlayers(data,next);
-        document.getElementById("washValue").textContent=currentValue();
-        document.getElementById("turnText").textContent=state.names[next]+" ist als Nächstes dran.";
-        setSelectedButtons();renderHistory();saveState();
-      }
-
-      function renderHistory(){
-        var holder=document.getElementById("history");holder.innerHTML="";
-        if(!state.history.length){holder.innerHTML='<div class="empty">Noch kein Abwasch eingetragen.</div>';return}
-        for(var i=state.history.length-1;i>=0;i--)holder.appendChild(buildEntry(i));
-      }
-
-      function buildEntry(index){
-        var entry=state.history[index],box=document.createElement("div");box.className="entry";
-        var top=document.createElement("div");top.className="entry-top";
-        var left=document.createElement("div"),name=document.createElement("div");name.className="entry-name";name.textContent=state.names[entry.person];
-        var meta=document.createElement("div");meta.className="entry-meta";meta.textContent="M "+entry.amount+" · F "+entry.fat+" · S "+entry.difficulty;left.appendChild(name);left.appendChild(meta);
-        var points=document.createElement("div");points.className="entry-points";points.textContent="+"+entry.points;top.appendChild(left);top.appendChild(points);box.appendChild(top);
-        var actions=document.createElement("div");actions.className="entry-actions";
-        var editBtn=document.createElement("button");editBtn.type="button";editBtn.className="mini mini-edit";editBtn.textContent="Bearbeiten";
-        var deleteBtn=document.createElement("button");deleteBtn.type="button";deleteBtn.className="mini mini-delete";deleteBtn.textContent="Löschen";actions.appendChild(editBtn);actions.appendChild(deleteBtn);box.appendChild(actions);
-        var editBox=document.createElement("div");editBox.className="edit-box";editBox.innerHTML='<div class="edit-grid">'+makeSelect("Menge","amount",entry.amount)+makeSelect("Fett","fat",entry.fat)+makeSelect("Schwierigkeit","difficulty",entry.difficulty)+"</div>";
-        var saveBtn=document.createElement("button");saveBtn.type="button";saveBtn.className="btn btn-primary";saveBtn.textContent="Änderung speichern";editBox.appendChild(saveBtn);box.appendChild(editBox);
-        editBtn.onclick=function(){editBox.className=editBox.className==="edit-box open"?"edit-box":"edit-box open"};
-        deleteBtn.onclick=function(){
-          if(deleteBtn.getAttribute("data-confirm")!=="yes"){
-            deleteBtn.setAttribute("data-confirm","yes");deleteBtn.textContent="Wirklich löschen";deleteBtn.style.background="#a53d3d";deleteBtn.style.color="#fff";
-            setTimeout(function(){if(document.body.contains(deleteBtn)){deleteBtn.removeAttribute("data-confirm");deleteBtn.textContent="Löschen";deleteBtn.style.background="";deleteBtn.style.color=""}},4000);return;
-          }
-          state.history.splice(index,1);render();showStatus("Eintrag gelöscht.");
-        };
-        saveBtn.onclick=function(){
-          var amount=Number(editBox.querySelector('[data-edit="amount"]').value),fat=Number(editBox.querySelector('[data-edit="fat"]').value),difficulty=Number(editBox.querySelector('[data-edit="difficulty"]').value);
-          state.history[index].amount=amount;state.history[index].fat=fat;state.history[index].difficulty=difficulty;state.history[index].points=amount+fat+difficulty;render();showStatus("Eintrag geändert.");
-        };
-        return box;
-      }
-
-      function makeSelect(label,key,selected){return"<label>"+label+'<select data-edit="'+key+'">'+makeOption(1,selected)+makeOption(2,selected)+makeOption(3,selected)+"</select></label>"}
-      function makeOption(value,selected){return'<option value="'+value+'"'+(Number(value)===Number(selected)?" selected":"")+">"+value+"</option>"}
-
-      var choiceButtons=document.querySelectorAll(".choice");
-      for(var i=0;i<choiceButtons.length;i++)choiceButtons[i].onclick=function(){var factor=this.parentNode.getAttribute("data-factor");state.factors[factor]=Number(this.getAttribute("data-value"));render()};
-
-      document.getElementById("participantCount").onchange=function(){
-        var newCount=Number(this.value),oldCount=state.participantCount;
-        if(state.history.length&&!confirm("Beim Ändern der Teilnehmerzahl wird der bisherige Verlauf gelöscht. Fortfahren?")){this.value=String(oldCount);return}
-        state.participantCount=newCount;state.history=[];render();showStatus(newCount+" Teilnehmer ausgewählt.");
-      };
-
-      document.getElementById("addBtn").onclick=function(){
-        var person=nextPerson(),amount=Number(state.factors.amount),fat=Number(state.factors.fat),difficulty=Number(state.factors.difficulty);
-        state.history.push({person:person,amount:amount,fat:fat,difficulty:difficulty,points:amount+fat+difficulty});render();showStatus("Abwasch eingetragen.");
-      };
-      document.getElementById("undoBtn").onclick=function(){if(!state.history.length){showStatus("Kein Eintrag vorhanden.");return}state.history.pop();render();showStatus("Letzter Eintrag entfernt.")};
-      document.getElementById("resetBtn").onclick=function(){if(!state.history.length){showStatus("Der Verlauf ist bereits leer.");return}if(!confirm("Wirklich den gesamten Verlauf und alle Punkte löschen?"))return;state.history=[];render();showStatus("Verlauf vollständig gelöscht.")};
-
-      render();
-      if("serviceWorker" in navigator)window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js")});
-    })();
-  </script>
-</body>
-</html>
+<main class="app">
+  <header class="hero" id="hero"><div class="brand">🧽 FairWash</div><div class="hero-label">Nächster Abwasch</div><div class="hero-name" id="heroName">–</div><div class="hero-sub">Wer weniger Punkte hat, ist zuerst dran.</div></header>
+  <section class="card">
+    <div class="setup"><label for="participantCount">Teilnehmer</label><select id="participantCount" aria-label="Anzahl Teilnehmer"><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+    <div class="players" id="players"></div>
+    <div class="fairness green" id="fairness">🟢 Alles fair 👍</div>
+    <button type="button" class="btn btn-draw draw" id="drawBtn">🎲 Gleichstand auslosen</button>
+    <div class="progress" id="progress"></div>
+  </section>
+  <section class="card"><h2>Statistik</h2><div class="stats"><div class="stat"><div class="stat-value" id="statCount">0</div><div class="stat-label">Abwasche</div></div><div class="stat"><div class="stat-value" id="statAverage">0,0</div><div class="stat-label">Ø Punkte</div></div><div class="stat"><div class="stat-value" id="statMax">0</div><div class="stat-label">Größter</div></div></div></section>
+  <section class="card"><h2>Aktuellen Abwasch bewerten</h2>
+    <div class="factor"><div class="factor-title">Menge</div><div class="choices" data-factor="amount"><button class="choice" data-value="1">1 · wenig</button><button class="choice" data-value="2">2 · normal</button><button class="choice" data-value="3">3 · viel</button></div></div>
+    <div class="factor"><div class="factor-title">Fett</div><div class="choices" data-factor="fat"><button class="choice" data-value="1">1 · kaum</button><button class="choice" data-value="2">2 · fettig</button><button class="choice" data-value="3">3 · sehr fettig</button></div></div>
+    <div class="factor"><div class="factor-title">Schwierigkeit</div><div class="choices" data-factor="difficulty"><button class="choice" data-value="1">1 · einfach</button><button class="choice" data-value="2">2 · mittel</button><button class="choice" data-value="3">3 · schwierig</button></div></div>
+    <div class="wash-value">Abwaschwert: <span id="washValue">6</span> Punkte</div>
+    <button class="btn btn-primary" id="addBtn">Abwasch eintragen</button><button class="btn btn-secondary" id="undoBtn">Letzten Eintrag rückgängig</button><button class="btn btn-danger" id="resetBtn">Verlauf vollständig löschen</button>
+  </section>
+  <section class="card"><h2>Verlauf</h2><div class="history" id="history"></div></section>
+</main><div class="toast" id="toast"></div>
+<script>
+(function(){"use strict";
+  var KEY="fairwash_v5",raffled=null,state=load();
+  function defaults(){return{participantCount:2,names:["Christoph","Meine Frau","Person 3","Person 4","Person 5"],factors:{amount:2,fat:2,difficulty:2},history:[]}}
+  function load(){var d=defaults();try{var raw=localStorage.getItem(KEY),p;if(raw){p=JSON.parse(raw)}else{raw=localStorage.getItem("camping_abwasch_v3")||localStorage.getItem("campingAbwaschV2");if(!raw)return d;p=JSON.parse(raw)}if(!p)return d;var names=Array.isArray(p.names)?p.names.map(String):d.names;while(names.length<5)names.push("Person "+(names.length+1));var history=(Array.isArray(p.history)?p.history:[]).map(function(e){return{person:Number(e.person!=null?e.person:e.washer)||0,amount:Number(e.amount!=null?e.amount:e.factors&&e.factors.amount)||1,fat:Number(e.fat!=null?e.fat:e.factors&&e.factors.fat)||1,difficulty:Number(e.difficulty!=null?e.difficulty:e.factors&&e.factors.difficulty)||1,points:Number(e.points!=null?e.points:e.value)||3}});var count=Math.min(5,Math.max(2,Number(p.participantCount)||Math.min(5,Math.max(2,names.length))));return{participantCount:count,names:names.slice(0,5),factors:p.factors||d.factors,history:history.filter(function(e){return e.person<count})}}catch(e){return d}}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){toast("Speichern ist blockiert.")}}
+  function totals(){var s=[],c=[],i;for(i=0;i<state.participantCount;i++){s.push(0);c.push(0)}state.history.forEach(function(e){if(e.person<s.length){s[e.person]+=Number(e.points)||0;c[e.person]++}});return{scores:s,counts:c}}
+  function candidates(){var s=totals().scores,m=Math.min.apply(null,s),a=[];s.forEach(function(v,i){if(v===m)a.push(i)});return a}
+  function next(){var a=candidates();if(raffled!==null&&a.indexOf(raffled)>=0)return raffled;if(a.length===1)return a[0];if(!state.history.length)return a[0];var last=state.history[state.history.length-1].person;for(var step=1;step<=state.participantCount;step++){var n=(last+step)%state.participantCount;if(a.indexOf(n)>=0)return n}return a[0]}
+  function value(){return Number(state.factors.amount)+Number(state.factors.fat)+Number(state.factors.difficulty)}
+  function toast(t){var e=document.getElementById("toast");e.textContent=t;e.className="toast show";clearTimeout(toast.timer);toast.timer=setTimeout(function(){e.className="toast"},1700)}
+  function renderPlayers(data,n){var h=document.getElementById("players");h.innerHTML="";var max=Math.max.apply(null,data.scores),min=Math.min.apply(null,data.scores);for(var i=0;i<state.participantCount;i++){(function(i){var box=document.createElement("div");box.className="player"+(i===n?" active":"")+(data.scores[i]===max&&max>min?" high":"");box.innerHTML='<input class="name-input" aria-label="Name Person '+(i+1)+'"><div class="score">'+data.scores[i]+' Punkte</div><div class="count">'+data.counts[i]+' Abwasche</div><div class="badge">'+(i===n?"Als Nächstes":data.scores[i]===max&&max>min?"Meiste Punkte":"Aktuell fair")+'</div>';var input=box.querySelector("input");input.value=state.names[i];input.onchange=function(){state.names[i]=this.value.trim()||"Person "+(i+1);render()};h.appendChild(box)})(i)}}
+  function renderFairness(data){var min=Math.min.apply(null,data.scores),max=Math.max.apply(null,data.scores),spread=max-min,low=[],high=[];data.scores.forEach(function(v,i){if(v===min)low.push(state.names[i]);if(v===max)high.push(state.names[i])});var e=document.getElementById("fairness");if(spread<=2){e.className="fairness green";e.textContent="🟢 Alles fair 👍"}else if(spread<=5){e.className="fairness yellow";e.textContent="🟡 Leichter Vorteil für "+low.join(", ")}else{e.className="fairness red";e.textContent="🔴 "+high.join(", ")+" "+(high.length>1?"sollten":"sollte")+" bald wieder übernehmen."}}
+  function renderProgress(data){var h=document.getElementById("progress"),max=Math.max.apply(null,data.scores.concat([1]));h.innerHTML="";data.scores.forEach(function(v,i){var r=document.createElement("div");r.className="progress-row";r.innerHTML='<div class="progress-name"></div><div class="track"><div class="bar" style="width:'+((v/max)*100)+'%"></div></div><div class="progress-value">'+v+'</div>';r.querySelector(".progress-name").textContent=state.names[i];h.appendChild(r)})}
+  function selected(){document.querySelectorAll(".choices").forEach(function(g){var f=g.dataset.factor;g.querySelectorAll(".choice").forEach(function(b){b.classList.toggle("selected",Number(b.dataset.value)===Number(state.factors[f]))})})}
+  function stats(){var vals=state.history.map(function(e){return Number(e.points)||0}),sum=vals.reduce(function(a,b){return a+b},0);document.getElementById("statCount").textContent=vals.length;document.getElementById("statAverage").textContent=(vals.length?sum/vals.length:0).toLocaleString("de-DE",{minimumFractionDigits:1,maximumFractionDigits:1});document.getElementById("statMax").textContent=vals.length?Math.max.apply(null,vals):0}
+  function renderHistory(){var h=document.getElementById("history");h.innerHTML="";if(!state.history.length){h.innerHTML='<div class="empty">Noch kein Abwasch eingetragen.</div>';return}for(var i=state.history.length-1;i>=0;i--)h.appendChild(entry(i))}
+  function entry(index){var e=state.history[index],b=document.createElement("div");b.className="entry";var top=document.createElement("div");top.className="entry-top";var left=document.createElement("div"),name=document.createElement("div");name.className="entry-name";name.textContent=state.names[e.person]||("Person "+(e.person+1));var meta=document.createElement("div");meta.className="entry-meta";meta.textContent="M "+e.amount+" · F "+e.fat+" · S "+e.difficulty;left.append(name,meta);var pts=document.createElement("div");pts.className="entry-points";pts.textContent="+"+e.points;top.append(left,pts);b.appendChild(top);var actions=document.createElement("div");actions.className="entry-actions";actions.innerHTML='<button class="mini mini-edit">Bearbeiten</button><button class="mini mini-delete">Löschen</button>';b.appendChild(actions);var edit=document.createElement("div");edit.className="edit-box";edit.innerHTML='<div class="edit-grid">'+select("Menge","amount",e.amount)+select("Fett","fat",e.fat)+select("Schwierigkeit","difficulty",e.difficulty)+'</div><button class="btn btn-primary save">Änderung speichern</button>';b.appendChild(edit);actions.children[0].onclick=function(){edit.classList.toggle("open")};actions.children[1].onclick=function(){if(confirm("Diesen Eintrag wirklich löschen?")){state.history.splice(index,1);raffled=null;render();toast("Eintrag gelöscht.")}};edit.querySelector(".save").onclick=function(){["amount","fat","difficulty"].forEach(function(k){e[k]=Number(edit.querySelector('[data-edit="'+k+'"]').value)});e.points=e.amount+e.fat+e.difficulty;raffled=null;render();toast("Eintrag geändert.")};return b}
+  function select(label,key,val){var o="";for(var i=1;i<=3;i++)o+='<option value="'+i+'"'+(i===Number(val)?" selected":"")+'>'+i+'</option>';return'<label>'+label+'<select data-edit="'+key+'">'+o+'</select></label>'}
+  function render(){var data=totals(),n=next();document.getElementById("participantCount").value=state.participantCount;document.getElementById("heroName").textContent=state.names[n];document.getElementById("washValue").textContent=value();renderPlayers(data,n);renderFairness(data);renderProgress(data);stats();selected();renderHistory();var a=candidates(),draw=document.getElementById("drawBtn");draw.classList.toggle("show",a.length>1);draw.textContent="🎲 Zwischen "+a.length+" Personen auslosen";save()}
+  document.querySelectorAll(".choice").forEach(function(b){b.onclick=function(){state.factors[this.parentNode.dataset.factor]=Number(this.dataset.value);render()}});
+  document.getElementById("participantCount").onchange=function(){var num=Number(this.value);if(state.history.length&&!confirm("Beim Ändern der Teilnehmerzahl wird der bisherige Verlauf gelöscht. Fortfahren?")){this.value=state.participantCount;return}state.participantCount=num;state.history=[];raffled=null;render();toast(num+" Teilnehmer ausgewählt.")};
+  document.getElementById("drawBtn").onclick=function(){var a=candidates();raffled=a[Math.floor(Math.random()*a.length)];render();document.getElementById("hero").classList.remove("pulse");void document.getElementById("hero").offsetWidth;document.getElementById("hero").classList.add("pulse");toast(state.names[raffled]+" wurde ausgelost.")};
+  document.getElementById("addBtn").onclick=function(){var p=next(),a=Number(state.factors.amount),f=Number(state.factors.fat),d=Number(state.factors.difficulty);state.history.push({person:p,amount:a,fat:f,difficulty:d,points:a+f+d});raffled=null;render();document.getElementById("hero").classList.add("pulse");setTimeout(function(){document.getElementById("hero").classList.remove("pulse")},400);toast("✅ Abwasch eingetragen.")};
+  document.getElementById("undoBtn").onclick=function(){if(!state.history.length){toast("Kein Eintrag vorhanden.");return}state.history.pop();raffled=null;render();toast("Letzter Eintrag entfernt.")};
+  document.getElementById("resetBtn").onclick=function(){if(!state.history.length){toast("Der Verlauf ist bereits leer.");return}if(confirm("Wirklich den gesamten Verlauf und alle Punkte löschen?")){state.history=[];raffled=null;render();toast("Verlauf vollständig gelöscht.")}};
+  render();if("serviceWorker" in navigator)window.addEventListener("load",function(){navigator.serviceWorker.register("./sw.js")});
+})();
+</script>
+</body></html>
