@@ -25,6 +25,8 @@ jobs:
         uses: actions/checkout@v4
       - name: GitHub Pages konfigurieren
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Website verpacken
         uses: actions/upload-pages-artifact@v3
         with:
