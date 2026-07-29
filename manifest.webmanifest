@@ -1,0 +1,20 @@
+{
+  "name": "FairWash – Camping-Abwasch",
+  "short_name": "FairWash",
+  "description": "Verteilt den Camping-Abwasch fair nach Aufwand und Punkten.",
+  "lang": "de-DE",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#eef2ed",
+  "theme_color": "#2f6f4e",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
