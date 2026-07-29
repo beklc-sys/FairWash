@@ -1,40 +1,74 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#2f6f4e"><meta name="description" content="FairWash verteilt den Abwasch fair – gemeinsam auf allen Geräten.">
-<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><title>FairWash</title>
-<style>
-:root{--bg:#eef2ed;--card:#fff;--text:#1e2922;--muted:#68736c;--green:#2f6f4e;--soft:#dcebe2;--yellow:#d69b16;--ys:#fff1bd;--red:#b54141;--rs:#f8e0e0;--border:#d7ded9;--shadow:0 10px 28px rgba(31,47,37,.08)}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}.app{width:min(780px,calc(100% - 24px));margin:16px auto 40px}.hero{background:linear-gradient(145deg,#255c40,#397d59);color:#fff;border-radius:24px;padding:22px;margin-bottom:14px;box-shadow:var(--shadow);text-align:center}.brand{font-size:1.25rem;font-weight:850}.hero-label{margin-top:18px;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;opacity:.8}.hero-name{font-size:clamp(2rem,8vw,3.2rem);font-weight:900}.hero-sub{margin-top:8px;opacity:.82}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}h2{margin:0 0 14px;font-size:1.15rem}button,input,select{font:inherit}.btn{width:100%;border:0;border-radius:14px;min-height:50px;padding:13px 16px;font-weight:850;margin-top:10px}.primary{background:var(--green);color:#fff}.secondary{background:#e8ede9;color:var(--text)}.danger{background:var(--rs);color:var(--red)}.hidden{display:none!important}.landing{text-align:center;padding:26px 18px}.landing h1{margin:0;font-size:2rem}.landing p{color:var(--muted);line-height:1.5}.field{width:100%;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff;margin:6px 0}.groupbar{display:flex;gap:8px;align-items:center;justify-content:space-between}.groupname{font-weight:900}.status{font-size:.8rem;color:var(--muted)}.share{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center}.qr{width:150px;height:150px;border-radius:12px;border:1px solid var(--border)}.linkbox{word-break:break-all;background:#f5f8f5;padding:10px;border-radius:10px;font-size:.85rem}.setup{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.setup select{width:90px;border:1px solid var(--border);border-radius:11px;padding:9px;background:#fff}.players{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.player{padding:13px;border-radius:15px;background:#f7f9f7;border:2px solid transparent}.player.active{border-color:var(--green);background:var(--soft)}.player.high:not(.active){border-color:#e1a2a2;background:var(--rs)}.name-input{width:100%;border:1px solid var(--border);border-radius:10px;padding:9px;font-weight:750}.score{font-size:1.7rem;font-weight:900;margin-top:8px}.count,.muted{font-size:.86rem;color:var(--muted)}.badge{display:inline-block;margin-top:7px;padding:4px 8px;border-radius:999px;font-size:.74rem;font-weight:800;background:#edf0ee}.fairness{margin-top:14px;border-radius:14px;padding:12px 14px;font-weight:800;text-align:center}.fairness.green{background:var(--soft);color:#245c3f}.fairness.yellow{background:var(--ys);color:#765404}.fairness.red{background:var(--rs);color:#8e3030}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.choice{border:1px solid var(--border);background:#fff;padding:12px 5px;border-radius:12px;font-weight:750}.choice.selected[data-value="1"]{background:var(--green);color:#fff}.choice.selected[data-value="2"]{background:var(--yellow);color:#fff}.choice.selected[data-value="3"]{background:var(--red);color:#fff}.factor{margin-bottom:16px}.factor-title{font-weight:850;margin-bottom:8px}.wash-value{text-align:center;font-size:1.2rem;font-weight:900;margin:18px 0 4px}.history{display:grid;gap:10px}.entry{border:1px solid var(--border);border-radius:14px;padding:13px}.entry-top{display:flex;justify-content:space-between;gap:12px}.entry-name{font-weight:850}.entry-points{font-weight:900}.entry-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.mini{border:0;border-radius:10px;min-height:40px;font-weight:750}.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,15px);background:#1f2a24;color:#fff;padding:11px 16px;border-radius:999px;font-weight:750;opacity:0;transition:.2s;z-index:99}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:600px){.players{grid-template-columns:1fr}.share{grid-template-columns:1fr;text-align:center}.qr{margin:auto}}
-</style>
-</head><body><main class="app">
-<section id="landing" class="card landing"><h1>🧽 FairWash</h1><p>Erstellt eine gemeinsame Gruppe oder tretet über einen QR-Code bei. Alle Geräte sehen denselben Stand.</p><input id="groupName" class="field" placeholder="Gruppenname, z. B. Camping Gardasee"><button id="createBtn" class="btn primary">➕ Neue Gruppe erstellen</button><div style="margin:18px 0;color:#68736c">oder</div><input id="joinCode" class="field" placeholder="Einladungslink oder Gruppencode"><button id="joinBtn" class="btn secondary">📷 Gruppe beitreten</button><div id="bootStatus" class="muted" style="margin-top:14px">Verbindung wird vorbereitet …</div></section>
-<div id="mainApp" class="hidden">
-<header class="hero"><div class="brand">🧽 FairWash</div><div class="hero-label">Nächster Abwasch</div><div class="hero-name" id="heroName">–</div><div class="hero-sub">Wer weniger Punkte hat, ist zuerst dran.</div></header>
-<section class="card"><div class="groupbar"><div><div class="groupname" id="currentGroup">Gruppe</div><div class="status" id="syncStatus">Synchronisiert</div></div><button id="shareToggle" class="mini">QR teilen</button></div><div id="shareBox" class="share hidden" style="margin-top:14px"><img id="qrImage" class="qr" alt="QR-Code"><div><div class="linkbox" id="inviteLink"></div><button id="copyBtn" class="btn secondary">Link kopieren</button><button id="leaveBtn" class="btn danger">Gruppe verlassen</button></div></div></section>
-<section class="card"><div class="setup"><label>Teilnehmer</label><select id="participantCount"><option>2</option><option>3</option><option>4</option><option>5</option></select></div><div class="players" id="players"></div><div class="fairness green" id="fairness">🟢 Alles fair 👍</div></section>
-<section class="card"><h2>Aktuellen Abwasch bewerten</h2><div class="factor"><div class="factor-title">Menge</div><div class="choices" data-factor="amount"><button class="choice" data-value="1">1 · wenig</button><button class="choice" data-value="2">2 · normal</button><button class="choice" data-value="3">3 · viel</button></div></div><div class="factor"><div class="factor-title">Fett</div><div class="choices" data-factor="fat"><button class="choice" data-value="1">1 · kaum</button><button class="choice" data-value="2">2 · fettig</button><button class="choice" data-value="3">3 · sehr fettig</button></div></div><div class="factor"><div class="factor-title">Schwierigkeit</div><div class="choices" data-factor="difficulty"><button class="choice" data-value="1">1 · einfach</button><button class="choice" data-value="2">2 · mittel</button><button class="choice" data-value="3">3 · schwierig</button></div></div><div class="wash-value">Abwaschwert: <span id="washValue">6</span> Punkte</div><button id="addBtn" class="btn primary">Abwasch eintragen</button><button id="undoBtn" class="btn secondary">Letzten Eintrag rückgängig</button><button id="resetBtn" class="btn danger">Verlauf vollständig löschen</button></section>
-<section class="card"><h2>Verlauf</h2><div class="history" id="history"></div></section></div></main><div class="toast" id="toast"></div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#2f6f4e">
+  <meta name="description" content="FairWash verteilt den Abwasch fair – gemeinsam auf allen Geräten.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <title>FairWash</title>
+</head>
+<body>
+<main class="app">
+  <section id="landing" class="card landing">
+    <h1>🧽 FairWash</h1>
+    <p>Erstellt eine gemeinsame Gruppe oder tretet über einen QR-Code bei. Alle Geräte sehen denselben Stand.</p>
+    <input id="groupName" class="field" placeholder="Gruppenname, z. B. Camping Gardasee" maxlength="80">
+    <button id="createBtn" class="btn primary">➕ Neue Gruppe erstellen</button>
+    <div style="margin:18px 0;color:#68736c">oder</div>
+    <input id="joinCode" class="field" placeholder="Einladungslink oder Gruppencode">
+    <button id="joinBtn" class="btn secondary">📷 Gruppe beitreten</button>
+    <div id="bootStatus" class="muted" style="margin-top:14px">Verbindung wird vorbereitet …</div>
+  </section>
+
+  <div id="mainApp" class="hidden">
+    <header class="hero">
+      <div class="brand">🧽 FairWash</div>
+      <div class="hero-label">Nächster Abwasch</div>
+      <div class="hero-name" id="heroName">–</div>
+      <div class="hero-sub">Wer weniger Punkte hat, ist zuerst dran.</div>
+    </header>
+
+    <section class="card">
+      <div class="groupbar">
+        <div><div class="groupname" id="currentGroup">Gruppe</div><div class="status" id="syncStatus">Synchronisiert</div></div>
+        <button id="shareToggle" class="mini">QR teilen</button>
+      </div>
+      <div id="shareBox" class="share hidden" style="margin-top:14px">
+        <img id="qrImage" class="qr" alt="QR-Code zur Gruppeneinladung">
+        <div>
+          <div class="linkbox" id="inviteLink"></div>
+          <button id="copyBtn" class="btn secondary">Link kopieren</button>
+          <button id="leaveBtn" class="btn danger">Gruppe verlassen</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="setup"><label for="participantCount">Teilnehmer</label><select id="participantCount"><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+      <div class="players" id="players"></div>
+      <div class="fairness green" id="fairness">🟢 Alles fair 👍</div>
+    </section>
+
+    <section class="card">
+      <h2>Aktuellen Abwasch bewerten</h2>
+      <div class="factor"><div class="factor-title">Menge</div><div class="choices" data-factor="amount"><button class="choice" data-value="1">1 · wenig</button><button class="choice" data-value="2">2 · normal</button><button class="choice" data-value="3">3 · viel</button></div></div>
+      <div class="factor"><div class="factor-title">Fett</div><div class="choices" data-factor="fat"><button class="choice" data-value="1">1 · kaum</button><button class="choice" data-value="2">2 · fettig</button><button class="choice" data-value="3">3 · sehr fettig</button></div></div>
+      <div class="factor"><div class="factor-title">Schwierigkeit</div><div class="choices" data-factor="difficulty"><button class="choice" data-value="1">1 · einfach</button><button class="choice" data-value="2">2 · mittel</button><button class="choice" data-value="3">3 · schwierig</button></div></div>
+      <div class="wash-value">Abwaschwert: <span id="washValue">6</span> Punkte</div>
+      <button id="addBtn" class="btn primary">Abwasch eintragen</button>
+      <button id="undoBtn" class="btn secondary">Letzten Eintrag rückgängig</button>
+      <button id="resetBtn" class="btn danger">Verlauf vollständig löschen</button>
+    </section>
+
+    <section class="card"><h2>Verlauf</h2><div class="history" id="history"></div></section>
+  </div>
+</main>
+<div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-(function(){"use strict";
-const URL="https://uftqqchwdksznxsjioat.supabase.com",KEY="sb_publishable_b3D290QZUx-TwJHj7D_s-A_PzYdGNxw";
-const db=window.supabase.createClient(URL,KEY),LOCAL="fairwash_v6_local";let group=null,channel=null,saveTimer=null;
-let state={participantCount:2,names:["Christoph","Ramona","Person 3","Person 4","Person 5"],factors:{amount:2,fat:2,difficulty:2},history:[]};
-const $=id=>document.getElementById(id);function toast(t){const e=$("toast");e.textContent=t;e.className="toast show";clearTimeout(toast.t);toast.t=setTimeout(()=>e.className="toast",1800)}
-function tokenFrom(v){v=(v||"").trim();try{const u=new URL(v);return u.searchParams.get("group")||""}catch(e){return v.replace(/^.*group=/,"").split(/[&#]/)[0]}}
-async function auth(){const {data}=await db.auth.getSession();if(!data.session){const r=await db.auth.signInAnonymously();if(r.error)throw r.error}}
-async function init(){try{await auth();$("bootStatus").textContent="Bereit.";const token=new URL(location.href).searchParams.get("group")||localStorage.getItem("fairwash_group");if(token)await join(token,true)}catch(e){$("bootStatus").textContent="Supabase ist noch nicht eingerichtet: "+e.message}}
-async function create(){const name=$("groupName").value.trim();if(!name)return toast("Bitte einen Gruppennamen eingeben.");await auth();const r=await db.rpc("create_fairwash_group",{group_name:name,initial_state:state});if(r.error)return toast("Erstellen fehlgeschlagen: "+r.error.message);openGroup(r.data[0]);toast("Gruppe erstellt.")}
-async function join(raw,silent){const token=tokenFrom(raw);if(!token)return !silent&&toast("Bitte Link oder Code eingeben.");await auth();const r=await db.rpc("join_fairwash_group",{token});if(r.error){if(!silent)toast("Gruppe nicht gefunden.");return}openGroup(r.data[0]);if(!silent)toast("Gruppe beigetreten.")}
-function openGroup(g){group=g;state=normalize(g.state);localStorage.setItem("fairwash_group",g.invite_token);history.replaceState(null,"",location.pathname+"?group="+g.invite_token);$("landing").classList.add("hidden");$("mainApp").classList.remove("hidden");$("currentGroup").textContent=g.name;const link=location.origin+location.pathname+"?group="+g.invite_token;$("inviteLink").textContent=link;$("qrImage").src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(link);subscribe();render()}
-function normalize(s){const d=state,s=s||{};return{participantCount:Math.min(5,Math.max(2,Number(s.participantCount)||2)),names:(Array.isArray(s.names)?s.names:d.names).concat(d.names).slice(0,5),factors:s.factors||d.factors,history:Array.isArray(s.history)?s.history:[]}}
-function subscribe(){if(channel)db.removeChannel(channel);channel=db.channel("group-"+group.group_id).on("postgres_changes",{event:"UPDATE",schema:"public",table:"fairwash_groups",filter:"id=eq."+group.group_id},p=>{state=normalize(p.new.state);$("syncStatus").textContent="Gerade aktualisiert";render(false)}).subscribe()}
-function queueSave(){localStorage.setItem(LOCAL,JSON.stringify(state));$("syncStatus").textContent="Speichert …";clearTimeout(saveTimer);saveTimer=setTimeout(saveCloud,250)}
-async function saveCloud(){if(!group)return;const r=await db.from("fairwash_groups").update({state}).eq("id",group.group_id);$("syncStatus").textContent=r.error?"Offline – lokal gespeichert":"Synchronisiert";if(r.error)toast("Cloud-Speicherung fehlgeschlagen.")}
-function totals(){const s=Array(state.participantCount).fill(0),c=Array(state.participantCount).fill(0);state.history.forEach(e=>{if(e.person<s.length){s[e.person]+=Number(e.points)||0;c[e.person]++}});return{s,c}}
-function next(){const t=totals(),m=Math.min(...t.s),a=t.s.map((v,i)=>v===m?i:-1).filter(i=>i>=0);if(!state.history.length)return a[0];const last=state.history[state.history.length-1].person;for(let x=1;x<=state.participantCount;x++){const n=(last+x)%state.participantCount;if(a.includes(n))return n}return a[0]}
-function render(save=true){const t=totals(),n=next();$("participantCount").value=state.participantCount;$("heroName").textContent=state.names[n];$("washValue").textContent=Number(state.factors.amount)+Number(state.factors.fat)+Number(state.factors.difficulty);const p=$("players");p.innerHTML="";const max=Math.max(...t.s),min=Math.min(...t.s);for(let i=0;i<state.participantCount;i++){const box=document.createElement("div");box.className="player"+(i===n?" active":"")+(t.s[i]===max&&max>min?" high":"");box.innerHTML='<input class="name-input"><div class="score">'+t.s[i]+' Punkte</div><div class="count">'+t.c[i]+' Abwasche</div><div class="badge">'+(i===n?'Als Nächstes':t.s[i]===max&&max>min?'Meiste Punkte':'Aktuell fair')+'</div>';const inp=box.querySelector("input");inp.value=state.names[i];inp.onchange=()=>{state.names[i]=inp.value.trim()||"Person "+(i+1);render()};p.appendChild(box)}const spread=max-min,low=t.s.map((v,i)=>v===min?state.names[i]:null).filter(Boolean),f=$("fairness");if(spread<=2){f.className="fairness green";f.textContent="🟢 Alles fair 👍"}else if(spread<=5){f.className="fairness yellow";f.textContent="🟡 Leichter Vorteil für "+low.join(", ")}else{f.className="fairness red";f.textContent="🔴 "+low.join(", ")+" "+(low.length>1?"sollten":"sollte")+" jetzt übernehmen."}document.querySelectorAll(".choices").forEach(g=>g.querySelectorAll(".choice").forEach(b=>b.classList.toggle("selected",Number(b.dataset.value)===Number(state.factors[g.dataset.factor]))));const h=$("history");h.innerHTML="";if(!state.history.length)h.innerHTML='<div class="muted" style="text-align:center">Noch kein Abwasch eingetragen.</div>';for(let i=state.history.length-1;i>=0;i--){const e=state.history[i],row=document.createElement("div");row.className="entry";row.innerHTML='<div class="entry-top"><div><div class="entry-name"></div><div class="muted">M '+e.amount+' · F '+e.fat+' · S '+e.difficulty+'</div></div><div class="entry-points">+'+e.points+'</div></div><div class="entry-actions"><button class="mini">Bearbeiten</button><button class="mini danger">Löschen</button></div>';row.querySelector(".entry-name").textContent=state.names[e.person];row.querySelectorAll("button")[0].onclick=()=>{const v=prompt("Neue Punkte (3–9):",e.points);if(v!==null&&Number(v)>=3&&Number(v)<=9){e.points=Number(v);render();toast("Eintrag geändert.")}};row.querySelectorAll("button")[1].onclick=()=>{if(confirm("Eintrag löschen?")){state.history.splice(i,1);render()}};h.appendChild(row)}if(save)queueSave()}
-document.querySelectorAll(".choice").forEach(b=>b.onclick=()=>{state.factors[b.parentNode.dataset.factor]=Number(b.dataset.value);render()});$("createBtn").onclick=create;$("joinBtn").onclick=()=>join($("joinCode").value);$("participantCount").onchange=function(){if(state.history.length&&!confirm("Dabei wird der Verlauf gelöscht. Fortfahren?")){this.value=state.participantCount;return}state.participantCount=Number(this.value);state.history=[];render()};$("addBtn").onclick=()=>{const p=next(),a=Number(state.factors.amount),f=Number(state.factors.fat),d=Number(state.factors.difficulty);state.history.push({person:p,amount:a,fat:f,difficulty:d,points:a+f+d,createdAt:new Date().toISOString()});render();toast("✅ Abwasch eingetragen.")};$("undoBtn").onclick=()=>{if(state.history.length){state.history.pop();render();toast("Letzter Eintrag entfernt.")}};$("resetBtn").onclick=()=>{if(state.history.length&&confirm("Wirklich alles löschen?")){state.history=[];render()}};$("shareToggle").onclick=()=>$("shareBox").classList.toggle("hidden");$("copyBtn").onclick=async()=>{await navigator.clipboard.writeText($("inviteLink").textContent);toast("Link kopiert.")};$("leaveBtn").onclick=()=>{localStorage.removeItem("fairwash_group");history.replaceState(null,"",location.pathname);location.reload()};init();if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js"));
-})();
-</script></body></html>
+<script src="app.js"></script>
+</body>
+</html>
