@@ -39,11 +39,7 @@
       </div>
       <div id="shareBox" class="share hidden" style="margin-top:14px">
         <img id="qrImage" class="qr" alt="QR-Code zur Gruppeneinladung">
-        <div>
-          <div class="linkbox" id="inviteLink"></div>
-          <button id="copyBtn" class="btn secondary">Link kopieren</button>
-          <button id="leaveBtn" class="btn danger">Gruppe verlassen</button>
-        </div>
+        <div><div class="linkbox" id="inviteLink"></div><button id="copyBtn" class="btn secondary">Link kopieren</button><button id="leaveBtn" class="btn danger">Gruppe verlassen</button></div>
       </div>
     </section>
 
@@ -51,6 +47,16 @@
       <div class="setup"><label for="participantCount">Teilnehmer</label><select id="participantCount"><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
       <div class="players" id="players"></div>
       <div class="fairness green" id="fairness">🟢 Alles fair 👍</div>
+      <button type="button" class="btn draw hidden" id="drawBtn">🎲 Gleichstand auslosen</button>
+    </section>
+
+    <section class="card">
+      <h2>Statistik</h2>
+      <div class="stats">
+        <div class="stat"><div class="stat-value" id="statCount">0</div><div class="stat-label">Abwasche</div></div>
+        <div class="stat"><div class="stat-value" id="statAverage">0,0</div><div class="stat-label">Ø Punkte</div></div>
+        <div class="stat"><div class="stat-value" id="statMax">0</div><div class="stat-label">Größter</div></div>
+      </div>
     </section>
 
     <section class="card">
